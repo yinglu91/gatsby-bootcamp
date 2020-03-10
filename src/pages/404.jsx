@@ -1,17 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Footer from '../components/layout/Footer'
-import Header from '../components/layout/Header'
+import Layout from '../components/layout/Layout'
 
 const NotFound = () => {
   return (
-    <div>
-      <Header />
+    <Layout>
       <h1>Oop dead end</h1>
       <Link to="/">Go Home</Link>
-
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 
