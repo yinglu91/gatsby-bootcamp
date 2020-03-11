@@ -6,8 +6,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'Full-Stack Bootcamp',
-    author: 'Ying Lu',
+    title: 'Full-Stack Bootcamp 888',
+    author: 'Ying Lu 123',
   },
   plugins: [`gatsby-plugin-sass`],
 }
