@@ -23,7 +23,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-responsive-iframe`,
           `gatsby-remark-relative-images`,
           {
             resolve: `gatsby-remark-images`,
@@ -35,8 +34,16 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
         ],
       },
     },
   ],
 }
+
+// https://stephencharlesweiss.com/blog/2019-12-18/error-handling-embed-video-gatsby/
