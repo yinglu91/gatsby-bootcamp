@@ -4,10 +4,7 @@ import Header from './Header'
 import '../../styles/index.scss'
 import layoutStyles from './Layout.module.scss'
 
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from '../../context/GlobalContextProvider'
+import { GlobalStateContext } from '../../context/GlobalContextProvider'
 
 import { createGlobalStyle } from 'styled-components'
 

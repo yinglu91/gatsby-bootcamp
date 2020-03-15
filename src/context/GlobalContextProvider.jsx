@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const GlobalStateContext = React.createContext()
-export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
   theme: 'tan',
@@ -15,6 +14,13 @@ function reducer(state, action) {
         theme: state.theme === 'red' ? 'purple' : 'red',
       }
     }
+    case 'SET_THEME': {
+      console.log(action.payload)
+      return {
+        ...state,
+        theme: action.payload,
+      }
+    }
     default:
       throw new Error('Bad Action Type')
   }
@@ -23,16 +29,24 @@ function reducer(state, action) {
 const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
 
-  // const setTheme = (color)=> {
-  //   dispatch({ type: 'SET_THEME', payload: color })
+  const setTheme = color => {
+    console.log(color)
+    dispatch({ type: 'SET_THEME', payload: color })
+  }
 
-  // }
+  const toggleTheme = () => {
+    dispatch({ type: 'TOGGLE_THEME' })
+  }
 
   return (
-    <GlobalStateContext.Provider value={state}>
-      <GlobalDispatchContext.Provider value={dispatch}>
-        {children}
-      </GlobalDispatchContext.Provider>
+    <GlobalStateContext.Provider
+      value={{
+        theme: state.theme,
+        setTheme,
+        toggleTheme,
+      }}
+    >
+      {children}
     </GlobalStateContext.Provider>
   )
 }

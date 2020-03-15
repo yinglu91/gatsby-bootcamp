@@ -2,16 +2,11 @@ import React, { useContext } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import headerStyles from './Header.module.scss'
 
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from '../../context/GlobalContextProvider'
+import { GlobalStateContext } from '../../context/GlobalContextProvider'
 
 const Header = () => {
-  const dispatch = useContext(GlobalDispatchContext)
-  const state = useContext(GlobalStateContext)
-  console.log(state)
-  console.log(dispatch)
+  const { setTheme, toggleTheme } = useContext(GlobalStateContext)
+  console.log(setTheme)
 
   const data = useStaticQuery(graphql`
     query {
@@ -69,16 +64,28 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-
-        {/* {state.theme} */}
-        <button
+        {/* <button
           type="button"
           onClick={() => {
-            dispatch({ type: 'TOGGLE_THEME' })
+            toggleTheme()
           }}
         >
           Toggle Theme
-        </button>
+        </button> */}
+
+        <button type="button">Change Theme</button>
+        <select
+          id="themeSelection"
+          onChange={e => {
+            console.log(e.target.value)
+            setTheme(e.target.value)
+          }}
+        >
+          <option value="red">Red</option>
+          <option value="tan">Tan</option>
+          <option value="yellow">Yellow</option>
+          <option value="purple">Purple</option>
+        </select>
       </nav>
     </header>
   )
