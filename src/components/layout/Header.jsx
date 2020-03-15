@@ -81,9 +81,9 @@ const Header = () => {
             setTheme(e.target.value)
           }}
         >
-          <option value="red">Red</option>
+          <option value=""></option>
           <option value="tan">Tan</option>
-          <option value="yellow">Yellow</option>
+          <option value="red">Red</option>
           <option value="purple">Purple</option>
         </select>
       </nav>

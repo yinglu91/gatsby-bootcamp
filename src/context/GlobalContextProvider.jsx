@@ -2,8 +2,9 @@ import React from 'react'
 
 export const GlobalStateContext = React.createContext()
 
+const defaultTheme = 'black'
 const initialState = {
-  theme: 'tan',
+  theme: defaultTheme,
 }
 
 function reducer(state, action) {
@@ -18,7 +19,7 @@ function reducer(state, action) {
       console.log(action.payload)
       return {
         ...state,
-        theme: action.payload,
+        theme: action.payload == '' ? defaultTheme : action.payload,
       }
     }
     default:
