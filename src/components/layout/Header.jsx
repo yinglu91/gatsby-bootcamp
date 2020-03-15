@@ -73,7 +73,7 @@ const Header = () => {
           Toggle Theme
         </button> */}
 
-        <button type="button">Change Theme</button>
+        {/* <button type="button">Change Theme</button>
         <select
           id="themeSelection"
           onChange={e => {
@@ -85,7 +85,7 @@ const Header = () => {
           <option value="tan">Tan</option>
           <option value="red">Red</option>
           <option value="purple">Purple</option>
-        </select>
+        </select> */}
       </nav>
     </header>
   )
