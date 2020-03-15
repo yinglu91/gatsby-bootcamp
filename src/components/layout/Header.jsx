@@ -70,7 +70,7 @@ const Header = () => {
           </li>
         </ul>
 
-        {state.theme}
+        {/* {state.theme} */}
         <button
           type="button"
           onClick={() => {

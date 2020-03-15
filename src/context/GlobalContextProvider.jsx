@@ -4,7 +4,7 @@ export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
-  theme: 'light',
+  theme: 'tan',
 }
 
 function reducer(state, action) {
@@ -12,7 +12,7 @@ function reducer(state, action) {
     case 'TOGGLE_THEME': {
       return {
         ...state,
-        theme: state.theme === 'light' ? 'dark' : 'light',
+        theme: state.theme === 'red' ? 'purple' : 'red',
       }
     }
     default:
@@ -22,6 +22,11 @@ function reducer(state, action) {
 
 const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
+
+  // const setTheme = (color)=> {
+  //   dispatch({ type: 'SET_THEME', payload: color })
+
+  // }
 
   return (
     <GlobalStateContext.Provider value={state}>
